@@ -3,6 +3,7 @@ import ReactMapboxGl, { GeoJSONLayer, Layer, Feature, ZoomControl } from 'react-
 import config from '../config.json';
 import styles from './Melbourne.style';
 import Checkbox from './Checkbox';
+import SuburbBoundaries from './SuburbBoundaries';
 import './App.css';
 
 const { accessToken, mapStyle } = config;
@@ -14,7 +15,9 @@ class Melbourne extends Component {
     super(props);
     this.state = {
       zoom: [11],
+      hideSuburbBoundaries: true,
     };
+    this.onCheckboxChanged = this.onCheckboxChanged.bind(this);
   }
 
   _onControlClick = (map, zoomDiff) => {
@@ -23,16 +26,18 @@ class Melbourne extends Component {
   };
 
   onCheckboxChanged(value) {
-    console.log(value);
+    this.setState({ hideSuburbBoundaries : value })
   }
 
   render() {
+    const hideSuburbBoundaries = this.state.hideSuburbBoundaries ? 'none' : 'visible';
+
     return (
         <div>
           <nav className="nav-overlay">
             <div className="nav-overlay-content">
 
-              <Checkbox name="test1" label="Test1" callback={this.onCheckboxChanged}/>
+              <Checkbox name="hideSuburbBoundaries" label="Suburb Boundaries" callback={this.onCheckboxChanged}/>
 
             </div>
           </nav>
@@ -50,11 +55,7 @@ class Melbourne extends Component {
                 onControlClick={this._onControlClick}
               />
 
-              <GeoJSONLayer
-                data="http://data.gov.au/geoserver/vic-suburb-locality-boundaries-psma-administrative-boundaries/wfs?request=GetFeature&typeName=af33dd8c_0534_4e18_9245_fc64440f742e&outputFormat=json"
-                // data="http://fiftytwo-ovenbird.netlify.com/victoria_suburbs.json"
-                lineLayout={{ visibility: "visible" }}
-              />
+              <SuburbBoundaries visibility={hideSuburbBoundaries}/>
 
           </ReactMapboxGl>
         </div>
