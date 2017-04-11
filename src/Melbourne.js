@@ -15,7 +15,7 @@ class Melbourne extends Component {
     super(props);
     this.state = {
       zoom: [11],
-      hideSuburbBoundaries: true,
+      showSuburbBoundaries: false,
     };
     this.onCheckboxChanged = this.onCheckboxChanged.bind(this);
   }
@@ -26,18 +26,18 @@ class Melbourne extends Component {
   };
 
   onCheckboxChanged(value) {
-    this.setState({ hideSuburbBoundaries : value })
+    this.setState({ showSuburbBoundaries : value })
   }
 
   render() {
-    const hideSuburbBoundaries = this.state.hideSuburbBoundaries ? 'none' : 'visible';
+    const showSuburbBoundaries = this.state.showSuburbBoundaries ? 'visible' : 'none';
 
     return (
         <div>
           <nav className="nav-overlay">
             <div className="nav-overlay-content">
 
-              <Checkbox name="hideSuburbBoundaries" label="Suburb Boundaries" callback={this.onCheckboxChanged}/>
+              <Checkbox name="showSuburbBoundaries" label="Suburb Boundaries" callback={this.onCheckboxChanged}/>
 
             </div>
           </nav>
@@ -55,7 +55,7 @@ class Melbourne extends Component {
                 onControlClick={this._onControlClick}
               />
 
-              <SuburbBoundaries visibility={hideSuburbBoundaries}/>
+              <SuburbBoundaries visibility={showSuburbBoundaries}/>
 
           </ReactMapboxGl>
         </div>
