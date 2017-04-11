@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactMapboxGl, { Layer, Feature, ZoomControl } from "react-mapbox-gl";
+import ReactMapboxGl, { GeoJSONLayer, Layer, Feature, ZoomControl } from "react-mapbox-gl";
 import config from "../config.json";
 import styles from './Melbourne.style';
 
@@ -32,14 +32,13 @@ class Melbourne extends Component {
 
               <ZoomControl
                 zoomDiff={1}
-                onControlClick={this._onControlClick}/>
+                onControlClick={this._onControlClick}
+              />
 
-              <Layer
-                type="symbol"
-                id="marker"
-                layout={{ "icon-image": "marker-15" }}>
-                <Feature coordinates={melbourneCenter}/>
-              </Layer>
+              <GeoJSONLayer
+                data="http://fiftytwo-ovenbird.netlify.com/victoria_suburbs.json"
+                lineLayout={{ visibility: "visible" }}
+              />
 
           </ReactMapboxGl>
         </div>
