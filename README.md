@@ -50,4 +50,4 @@ Ovenbird is started using [Create React App](https://github.com/facebookincubato
 
 ### Conclusion
 
-Initially, I was considering to play with [Leaflet](http://leafletjs.com), it's a well-known JavaScript library for maps and it was the foundation of the previous [Mapbox API](https://www.mapbox.com/mapbox.js/api/v3.0.1/). But, I've been spoilt by the vector tiles of [Mapbox GL JS]. It's been fun to play with a maps library and I think the next challenge is to parse and process many interesting datasets of Australia to be layered on top of Ovenbird.
+Initially, I was considering to play with [Leaflet](http://leafletjs.com), it's a well-known JavaScript library for maps and it was the foundation of the previous [Mapbox API](https://www.mapbox.com/mapbox.js/api/v3.0.1/). But, I've been spoilt by the vector tiles of Mapbox GL JS. It's been fun to play with a maps library and I think the next challenge is to parse and process many [interesting](https://data.gov.au) [datasets](https://www.data.vic.gov.au) of Australia to be layered on top of Ovenbird.
