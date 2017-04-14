@@ -14,7 +14,7 @@ Ovenbird utilises the [Mapbox](https://www.mapbox.com) location platform to disp
 
 ### Implementation
 
-...
+Mapbox provides [Mapbox GL JS](https://www.mapbox.com/mapbox-gl-js/api/), a JavaScript library that uses WebGL to render interactive maps from vector tiles. It is very fast after the initial load and it has been [favourably compared](http://fuzzytolerance.info/blog/2016/03/16/Leaflet-to-Mapbox-GL/) with [Leaflet](http://leafletjs.com). Ovenbird uses [react-mapbox-gl](https://github.com/alex3165/react-mapbox-gl) that provides React binding and wrapper of Mapbox GL JS. Ovenbird is started using [Create React App](https://github.com/facebookincubator/create-react-app) and deployed on [Netlify](https://www.netlify.com).
 
 ### Conclusion
 
